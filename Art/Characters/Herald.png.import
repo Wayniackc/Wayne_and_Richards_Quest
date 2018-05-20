@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Wizard.png-979db263ab6ea75fb2a34bba3e4a3748.stex"
+path="res://.import/Herald.png-c28df9223136ad298ccb6a209c1ef754.stex"
 
 [deps]
 
-source_file="res://Art/Characters/Wizard.png"
-source_md5="e3739d79f69fb363630965b23eee4644"
+source_file="res://Art/Characters/Herald.png"
+source_md5="57f1bab7260fa72d45cfc8fbb32dd50b"
 
-dest_files=[ "res://.import/Wizard.png-979db263ab6ea75fb2a34bba3e4a3748.stex" ]
-dest_md5="8b7af5f1c70e664b3dc7030c43b8a74d"
+dest_files=[ "res://.import/Herald.png-c28df9223136ad298ccb6a209c1ef754.stex" ]
+dest_md5="156f3776dd149d119615b0cedac68713"
 
 [params]
 
