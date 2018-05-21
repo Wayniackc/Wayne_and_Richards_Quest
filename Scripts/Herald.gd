@@ -1,8 +1,8 @@
 extends Node
 
 onready var richtext = get_node("Panel/RichTextLabel")
-onready var panelNode = get_parent().get_node("Panel/Panel")
-onready var timer = get_parent().get_node("Panel/Panel/RichTextLabel/Timer")
+onready var panelNode = get_node("Panel")
+onready var timer = get_node("Panel/RichTextLabel/Timer")
 onready var timer2 = get_node("Timer")
 
 func _on_Area2D_body_entered(body):
@@ -17,10 +17,5 @@ func _on_Timer_timeout():
 
 func _on_AnimationPlayer_animation_finished(Herald):
 	print("Animation finished")
-	print(timer)
-	print(timer2)
-
-
-
 
 

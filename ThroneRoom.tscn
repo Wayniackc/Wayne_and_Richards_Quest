@@ -1,127 +1,67 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Art/Backgrounds/ThroneRoom.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Courtroom.gd" type="Script" id=2]
-<<<<<<< HEAD
-[ext_resource path="res://Scripts/Herald.gd" type="Script" id=3]
-[ext_resource path="res://Art/Characters/Herald.png" type="Texture" id=4]
-=======
->>>>>>> parent of 1d7c6e6... Finished Herald's opening scene
+[ext_resource path="res://Scripts/Herald.gd" type="Script" id=2]
+[ext_resource path="res://Art/Characters/Herald.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Courtroom.gd" type="Script" id=4]
 
-[node name="Node" type="Node" index="0"]
+[sub_resource type="Animation" id=1]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+resource_name = "Herald"
+length = 6.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 46, 566 ), Vector2( 436, 566 ), Vector2( 446, 436 ) ]
+}
 
-scale = Vector2( 1, 0.998465 )
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30, 35.6087 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30, 32 )
+
+[node name="Courtroom" type="Node" index="0"]
+
+[node name="Background" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 texture = ExtResource( 1 )
-<<<<<<< HEAD
 stretch_mode = 0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Panel" type="Node" parent="." index="1"]
+[node name="Herald" type="Node" parent="." index="1"]
 
-[node name="Panel" type="Panel" parent="Panel" index="0"]
-=======
-centered = false
-_sections_unfolded = [ "Offset" ]
-
-[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
-
-polygon = PoolVector2Array( 96, 506, 96, 636, 1176, 636, 1176, 506 )
-uv = PoolVector2Array(  )
-color = Color( 0.295027, 0.289917, 0.296875, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D" index="0"]
->>>>>>> parent of 1d7c6e6... Finished Herald's opening scene
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-<<<<<<< HEAD
-margin_left = 206.0
-margin_top = 616.0
-margin_right = 1046.0
-margin_bottom = 696.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Visibility" ]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Panel" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 820.0
-margin_bottom = 70.0
-=======
-margin_left = 106.0
-margin_top = 516.0
-margin_right = 1166.0
-margin_bottom = 626.0
->>>>>>> parent of 1d7c6e6... Finished Herald's opening scene
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = true
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 script = ExtResource( 2 )
-<<<<<<< HEAD
-_sections_unfolded = [ "BBCode", "Material", "Visibility" ]
-
-[node name="Timer" type="Timer" parent="Panel/Panel/RichTextLabel" index="1"]
-=======
-_sections_unfolded = [ "BBCode" ]
-
-[node name="Timer" type="Timer" parent="Polygon2D" index="1"]
->>>>>>> parent of 1d7c6e6... Finished Herald's opening scene
-
-process_mode = 1
-wait_time = 0.05
-one_shot = false
-<<<<<<< HEAD
-autostart = false
-
-[node name="Herald" type="Node" parent="." index="2"]
-
-script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Herald" index="0"]
 
-editor/display_folded = true
 root_node = NodePath("..")
 autoplay = "Herald"
 playback_process_mode = 1
@@ -134,7 +74,7 @@ _sections_unfolded = [ "Playback Options" ]
 [node name="Sprite" type="Sprite" parent="Herald/AnimationPlayer" index="0"]
 
 position = Vector2( 86, 576 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -178,7 +118,63 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
-[connection signal="timeout" from="Panel/Panel/RichTextLabel/Timer" to="Panel/Panel/RichTextLabel" method="_on_Timer_timeout"]
+[node name="Panel" type="Panel" parent="Herald" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 206.0
+margin_top = 616.0
+margin_right = 1046.0
+margin_bottom = 696.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Herald/Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 820.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 4 )
+_sections_unfolded = [ "BBCode", "Material", "Visibility" ]
+
+[node name="Timer" type="Timer" parent="Herald/Panel/RichTextLabel" index="1"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = false
 
 [connection signal="animation_finished" from="Herald/AnimationPlayer" to="Herald" method="_on_AnimationPlayer_animation_finished"]
 
@@ -186,10 +182,6 @@ autostart = false
 
 [connection signal="timeout" from="Herald/Timer" to="Herald" method="_on_Timer_timeout"]
 
-=======
-autostart = true
+[connection signal="timeout" from="Herald/Panel/RichTextLabel/Timer" to="Herald/Panel/RichTextLabel" method="_on_Timer_timeout"]
 
-[connection signal="timeout" from="Polygon2D/Timer" to="Polygon2D/RichTextLabel" method="_on_Timer_timeout"]
-
->>>>>>> parent of 1d7c6e6... Finished Herald's opening scene
 
