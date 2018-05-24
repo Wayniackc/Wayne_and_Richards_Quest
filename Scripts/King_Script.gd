@@ -13,7 +13,6 @@ func _ready():
 	set_visible_characters(0)
 	set_process_input(true)
 	panelNode.hide()
-	print(panelNode)
 	
 func _on_Timer0_timeout():
 	timer.start()

@@ -11,7 +11,6 @@ func _on_Area2D_body_entered(body):
 		timer2.start()
 		
 func _on_Timer_timeout():
-#	print(richtext)
 	timer.start()
 	panelNode.show()
 

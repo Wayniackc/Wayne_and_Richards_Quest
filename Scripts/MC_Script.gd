@@ -14,7 +14,6 @@ func _ready():
 	set_visible_characters(0)
 	set_process_input(true)
 	panelNode2.hide()
-	print(timer)
 		
 func _input(event):
 	if Input.is_action_pressed("ui_accept"):
