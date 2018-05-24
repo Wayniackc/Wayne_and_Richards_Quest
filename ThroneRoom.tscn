@@ -82,6 +82,7 @@ __meta__ = {
 
 [node name="Herald" type="Node" parent="." index="1"]
 
+editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Herald" index="0"]
@@ -119,7 +120,6 @@ shape = SubResource( 2 )
 [node name="Area2D" type="Area2D" parent="Herald" index="1"]
 
 editor/display_folded = true
-visible = false
 position = Vector2( 446, 407 )
 scale = Vector2( 1, 0.34375 )
 input_pickable = true
@@ -204,12 +204,14 @@ autostart = false
 
 [node name="MC" type="Node" parent="." index="2"]
 
+editor/display_folded = true
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MC" index="0"]
 
 pause_mode = 1
+editor/display_folded = true
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
@@ -267,6 +269,7 @@ autostart = false
 
 [node name="Panel" type="Panel" parent="MC" index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -324,8 +327,6 @@ one_shot = false
 autostart = false
 
 [node name="King" type="Node" parent="." index="3"]
-
-editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="King" index="0"]
 
@@ -390,6 +391,13 @@ wait_time = 0.05
 one_shot = false
 autostart = false
 
+[node name="Timer" type="Timer" parent="King" index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
 [connection signal="animation_finished" from="Herald/AnimationPlayer" to="Herald" method="_on_AnimationPlayer_animation_finished"]
 
 [connection signal="body_entered" from="Herald/Area2D" to="Herald" method="_on_Area2D_body_entered"]
@@ -407,5 +415,7 @@ autostart = false
 [connection signal="timeout" from="MC/Panel/RichTextLabel/Timer" to="MC/Panel/RichTextLabel" method="_on_Timer_timeout"]
 
 [connection signal="timeout" from="King/Panel/RichTextLabel/Timer" to="King/Panel/RichTextLabel" method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="King/Timer" to="King/Panel/RichTextLabel" method="_on_Timer0_timeout"]
 
 

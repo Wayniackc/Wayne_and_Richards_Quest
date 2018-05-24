@@ -34,10 +34,6 @@ func _on_Timer_timeout():
 	
 func _next_speech():
 	if can_talk == true:
-		print(can_talk)
 		can_talk = false
-		print(can_talk)
 		mc_node.assigned_animation = "MC"
 		mc_node.play("MC")
-#	else:
-#		pass
