@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MainCharacter.png-34cba32e8c2eaea39421e6f79cae060b.stex"
+path="res://.import/10.png-7b7489bab0f5caec2add9050f13860ba.stex"
 
 [deps]
 
-source_file="res://Art/Characters/MainCharacter.png"
-source_md5="2eda264644dfb31ce5010c11c4ffde23"
+source_file="res://Art/Characters/Wizard/10.png"
+source_md5="19fffb012cc67f145882f45f5a193c0d"
 
-dest_files=[ "res://.import/MainCharacter.png-34cba32e8c2eaea39421e6f79cae060b.stex" ]
-dest_md5="2fd8eb1ed3d3903a593a5a38f56d5ef5"
+dest_files=[ "res://.import/10.png-7b7489bab0f5caec2add9050f13860ba.stex" ]
+dest_md5="d94d6f2bd6a783e82da3d9f09f93a13e"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

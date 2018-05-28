@@ -4,6 +4,7 @@ extends RichTextLabel
 onready var panelNode2 = get_parent()
 onready var timer = get_node("../../../King/Timer")
 
+
 var dialog = ["MC: \"I have nothing to say to any of you.\"", "MC: \"This so-called trial is just as farcical as the rest of your reign and I will take no further part in either.\"", "MC: *spits on the ground*"]
 var page = 0
 

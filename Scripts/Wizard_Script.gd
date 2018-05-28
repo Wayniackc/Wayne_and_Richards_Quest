@@ -1,11 +1,9 @@
-# King_Script.gd
 extends RichTextLabel
 
 onready var panelNode = get_parent()
 onready var timer = get_node("Timer")
-onready var timer2 = get_node("../../../Wizard/Timer")
 
-var dialog = ["King: *sighs*", "King: \"Very well. I had hoped for a better outcome, but I see you are just as stubborn and petulent as your father.\"", "MC: \"How dare you mention my father!\"", "King: \"SILENCE!\"", "King: *sighs* \"I don't relish what I am about to do, but you leave me no choice but to banish you to the wastelands with all the other criminals and traitors.\"", "King: \"Now where is that blasted wizard?\""]
+var dialog = ["Wizard: \"I'm very sorry, Your Grace.\"", "Wizard: \"I had intended to be here on time, but I was in my laboratory working on my strongest potion and...\"", "King: \"Enough! Just get on with it so we can be rid of this traitor once and for all.\"", "Wizard: \"Yes, Your Grace. Very well.\"", "Wizard: *closes his eyes and his staff begins to glow*", "Wizard: \"EXSULES VITAE!!\""]
 var page = 0
 
 var can_talk = true
@@ -16,10 +14,10 @@ func _ready():
 	set_process_input(true)
 	panelNode.hide()
 	
-func _on_Timer0_timeout():
+func _on_AnimatedSprite_animation_finished():
 	timer.start()
 	panelNode.show()
-		
+
 func _input(event):
 	if Input.is_action_pressed("ui_accept"):
 		if get_visible_characters() > get_total_character_count():
@@ -29,14 +27,17 @@ func _input(event):
 				set_visible_characters(0)
 			else:
 				panelNode.hide()
-				_next_speech()
+				_banished()
 		else:
 			set_visible_characters(get_total_character_count())
 
 func _on_Timer_timeout():
 	set_visible_characters(get_visible_characters() + 1)
-
-func _next_speech():
+	
+func _banished():
 	if can_talk == true:
 		can_talk = false
-		timer2.start()
+		get_node("../../../MC/AnimationPlayer/AnimatedMC").play("Banished")
+
+func _on_AnimatedMC_animation_finished():
+	get_node("../../../MC/AnimationPlayer/AnimatedMC").hide()
