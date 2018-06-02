@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Art/Backgrounds/ThroneRoom.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Herald.gd" type="Script" id=2]
@@ -19,18 +19,19 @@
 [ext_resource path="res://Art/Characters/King.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/King_Script.gd" type="Script" id=18]
 [ext_resource path="res://Scripts/Wizard.gd" type="Script" id=19]
-[ext_resource path="res://Art/Characters/Wizard/Wizard.png" type="Texture" id=20]
-[ext_resource path="res://Art/Characters/Wizard/1.png" type="Texture" id=21]
-[ext_resource path="res://Art/Characters/Wizard/2.png" type="Texture" id=22]
-[ext_resource path="res://Art/Characters/Wizard/3.png" type="Texture" id=23]
-[ext_resource path="res://Art/Characters/Wizard/4.png" type="Texture" id=24]
-[ext_resource path="res://Art/Characters/Wizard/5.png" type="Texture" id=25]
-[ext_resource path="res://Art/Characters/Wizard/6.png" type="Texture" id=26]
-[ext_resource path="res://Art/Characters/Wizard/7.png" type="Texture" id=27]
-[ext_resource path="res://Art/Characters/Wizard/8.png" type="Texture" id=28]
-[ext_resource path="res://Art/Characters/Wizard/9.png" type="Texture" id=29]
-[ext_resource path="res://Art/Characters/Wizard/10.png" type="Texture" id=30]
+[ext_resource path="res://Art/Characters/Wizard/1.png" type="Texture" id=20]
+[ext_resource path="res://Art/Characters/Wizard/2.png" type="Texture" id=21]
+[ext_resource path="res://Art/Characters/Wizard/3.png" type="Texture" id=22]
+[ext_resource path="res://Art/Characters/Wizard/4.png" type="Texture" id=23]
+[ext_resource path="res://Art/Characters/Wizard/5.png" type="Texture" id=24]
+[ext_resource path="res://Art/Characters/Wizard/6.png" type="Texture" id=25]
+[ext_resource path="res://Art/Characters/Wizard/7.png" type="Texture" id=26]
+[ext_resource path="res://Art/Characters/Wizard/8.png" type="Texture" id=27]
+[ext_resource path="res://Art/Characters/Wizard/9.png" type="Texture" id=28]
+[ext_resource path="res://Art/Characters/Wizard/10.png" type="Texture" id=29]
+[ext_resource path="res://Art/Characters/Wizard/Wizard.png" type="Texture" id=30]
 [ext_resource path="res://Scripts/Wizard_Script.gd" type="Script" id=31]
+[ext_resource path="res://Scripts/Finale_Script.gd" type="Script" id=32]
 
 [sub_resource type="Animation" id=1]
 
@@ -80,7 +81,7 @@ tracks/0/keys = {
 "values": [ Vector2( 626.039, 785.596 ), Vector2( 623.823, 495.291 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
@@ -89,22 +90,22 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "In",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "Away",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": false,
 "name": "Teleport",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "In",
 "speed": 5.0
 } ]
 
@@ -254,14 +255,12 @@ autostart = false
 
 [node name="MC" type="Node" parent="." index="2"]
 
-editor/display_folded = true
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MC" index="0"]
 
 pause_mode = 1
-editor/display_folded = true
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
@@ -273,9 +272,8 @@ _sections_unfolded = [ "Pause", "Playback Options" ]
 
 [node name="AnimatedMC" type="AnimatedSprite" parent="MC/AnimationPlayer" index="0"]
 
-editor/display_folded = true
 position = Vector2( 626.039, 785.596 )
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 animation = "Banished"
 __meta__ = {
 "_edit_group_": true
@@ -458,13 +456,12 @@ autostart = false
 
 [node name="Wizard" type="Node" parent="." index="4"]
 
-editor/display_folded = true
 script = ExtResource( 19 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Wizard" index="0"]
 
 position = Vector2( 962.881, 552.909 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 animation = "Away"
 
 [node name="Panel" type="Panel" parent="Wizard" index="1"]
@@ -528,7 +525,74 @@ autostart = false
 [node name="Timer" type="Timer" parent="Wizard" index="2"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="Finale" type="Node" parent="." index="5"]
+
+[node name="Panel" type="Panel" parent="Finale" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 206.0
+margin_top = 616.0
+margin_right = 1046.0
+margin_bottom = 696.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Finale/Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 820.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 32 )
+_sections_unfolded = [ "BBCode", "Material", "Visibility" ]
+
+[node name="Timer" type="Timer" parent="Finale/Panel/RichTextLabel" index="1"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = false
+
+[node name="Timer" type="Timer" parent="Finale" index="1"]
+
+process_mode = 1
+wait_time = 1.0
 one_shot = true
 autostart = false
 
@@ -559,5 +623,9 @@ autostart = false
 [connection signal="timeout" from="Wizard/Panel/RichTextLabel/Timer" to="Wizard/Panel/RichTextLabel" method="_on_Timer_timeout"]
 
 [connection signal="timeout" from="Wizard/Timer" to="Wizard" method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Finale/Panel/RichTextLabel/Timer" to="Finale/Panel/RichTextLabel" method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Finale/Timer" to="Finale/Panel/RichTextLabel" method="_on_Timer2_timeout"]
 
 
