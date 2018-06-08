@@ -19,17 +19,17 @@
 [ext_resource path="res://Art/Characters/King.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/King_Script.gd" type="Script" id=18]
 [ext_resource path="res://Scripts/Wizard.gd" type="Script" id=19]
-[ext_resource path="res://Art/Characters/Wizard/1.png" type="Texture" id=20]
-[ext_resource path="res://Art/Characters/Wizard/2.png" type="Texture" id=21]
-[ext_resource path="res://Art/Characters/Wizard/3.png" type="Texture" id=22]
-[ext_resource path="res://Art/Characters/Wizard/4.png" type="Texture" id=23]
-[ext_resource path="res://Art/Characters/Wizard/5.png" type="Texture" id=24]
-[ext_resource path="res://Art/Characters/Wizard/6.png" type="Texture" id=25]
-[ext_resource path="res://Art/Characters/Wizard/7.png" type="Texture" id=26]
-[ext_resource path="res://Art/Characters/Wizard/8.png" type="Texture" id=27]
-[ext_resource path="res://Art/Characters/Wizard/9.png" type="Texture" id=28]
-[ext_resource path="res://Art/Characters/Wizard/10.png" type="Texture" id=29]
-[ext_resource path="res://Art/Characters/Wizard/Wizard.png" type="Texture" id=30]
+[ext_resource path="res://Art/Characters/Wizard/Wizard.png" type="Texture" id=20]
+[ext_resource path="res://Art/Characters/Wizard/1.png" type="Texture" id=21]
+[ext_resource path="res://Art/Characters/Wizard/2.png" type="Texture" id=22]
+[ext_resource path="res://Art/Characters/Wizard/3.png" type="Texture" id=23]
+[ext_resource path="res://Art/Characters/Wizard/4.png" type="Texture" id=24]
+[ext_resource path="res://Art/Characters/Wizard/5.png" type="Texture" id=25]
+[ext_resource path="res://Art/Characters/Wizard/6.png" type="Texture" id=26]
+[ext_resource path="res://Art/Characters/Wizard/7.png" type="Texture" id=27]
+[ext_resource path="res://Art/Characters/Wizard/8.png" type="Texture" id=28]
+[ext_resource path="res://Art/Characters/Wizard/9.png" type="Texture" id=29]
+[ext_resource path="res://Art/Characters/Wizard/10.png" type="Texture" id=30]
 [ext_resource path="res://Scripts/Wizard_Script.gd" type="Script" id=31]
 [ext_resource path="res://Scripts/Finale_Script.gd" type="Script" id=32]
 
@@ -93,19 +93,19 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "In",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "Away",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 20 ) ],
 "loop": false,
 "name": "Teleport",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": true,
-"name": "In",
 "speed": 5.0
 } ]
 
@@ -131,14 +131,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Tween" type="Tween" parent="Background" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 [node name="Herald" type="Node" parent="." index="1"]
 
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Herald" index="0"]
 
-editor/display_folded = true
 root_node = NodePath("..")
 autoplay = "Herald"
 playback_process_mode = 1
@@ -156,7 +163,16 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Herald" type="KinematicBody2D" parent="Herald/AnimationPlayer/Sprite" index="0"]
+[node name="Tween" type="Tween" parent="Herald/AnimationPlayer/Sprite" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Herald" type="KinematicBody2D" parent="Herald/AnimationPlayer/Sprite" index="1"]
 
 input_pickable = false
 collision_layer = 1
@@ -255,6 +271,7 @@ autostart = false
 
 [node name="MC" type="Node" parent="." index="2"]
 
+editor/display_folded = true
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
 
@@ -388,6 +405,16 @@ editor/display_folded = true
 
 position = Vector2( 603.878, 346.814 )
 texture = ExtResource( 17 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="Tween" type="Tween" parent="King/Sprite" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 [node name="Panel" type="Panel" parent="King" index="1"]
 
@@ -463,6 +490,17 @@ script = ExtResource( 19 )
 position = Vector2( 962.881, 552.909 )
 frames = SubResource( 6 )
 animation = "Away"
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Tween" type="Tween" parent="Wizard/AnimatedSprite" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "playback" ]
 
 [node name="Panel" type="Panel" parent="Wizard" index="1"]
 
