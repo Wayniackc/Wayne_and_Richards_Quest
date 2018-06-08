@@ -15,6 +15,8 @@ onready var herald = get_node("../../../Herald/AnimationPlayer/Sprite")
 onready var bg_tween = get_node("../../../Background/Tween")
 onready var bg = get_node("../../../Background")
 
+export(String, FILE, "*.tscn") var wasteland_scene
+
 var dialog = ["Herald: \"Nasty piece of business, Your Grace. We are better off having rid the realm of that scum.\"", "King: \"I fear it won't be the last we've heard of him if he's anything like his father.\"", "Wizard: \"He is exactly like his father to be sure.\"", "King: \"That should keep us all awake at night.\"", "Wizard: \"If you're having trouble sleeping, Your Grace, I can make you a sleeping potion that will assuredly help?\"", "King: \"Oh for God's sake. I'm going back to my chambers before I send the lot of you to the wasteland.\""]
 var page = 0
 
@@ -56,3 +58,5 @@ func _fade_out():
 	yield(get_tree().create_timer(3.0), "timeout")
 	bg_tween.interpolate_property(bg, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 2.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	bg_tween.start()
+	yield(get_tree().create_timer(3.0), "timeout")
+	get_tree().change_scene(wasteland_scene)

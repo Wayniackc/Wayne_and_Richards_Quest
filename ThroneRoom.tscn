@@ -109,7 +109,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Courtroom" type="Node" index="0"]
+[node name="Courtroom" type="Node"]
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 
@@ -619,6 +619,7 @@ selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 32 )
 _sections_unfolded = [ "BBCode", "Material", "Visibility" ]
+wasteland_scene = "res://Wasteland.tscn"
 
 [node name="Timer" type="Timer" parent="Finale/Panel/RichTextLabel" index="1"]
 
